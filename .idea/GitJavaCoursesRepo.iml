@@ -7,7 +7,9 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/main/Classwork20190405" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/Classworks/Classwork20190405" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/Homeworks" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/Classworks" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/buildPath" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
