@@ -3,6 +3,7 @@ package TicTackToe;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import
 
 public class TicTacToe {
 
@@ -47,7 +48,7 @@ public class TicTacToe {
     }
 
 
-    //TODO: TicTackToe.TicTacToe.Player turn from terminal;
+    //DONE: TicTackToe.TicTacToe.Player turn from terminal;
 
     private void playerTurn(Player player) {
 
