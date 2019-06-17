@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1e9418a7-3ca1-41a5-ac95-792069cc1673" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NavigationService.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/buturlia/services/navigation/NavigationServiceRunner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/buturlia/services/navigation/dao/CityDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/buturlia/services/navigation/dao/CityDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/buturlia/services/navigation/dao/CrudDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/buturlia/services/navigation/db/MySqlConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/by/buturlia/services/navigation/entities/City.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/META-INF/NavigationService.kotlin_module" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project01/src/main/java/item/ItemDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project01/src/main/java/item/ItemDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project01/src/main/java/item/ItemWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project01/src/main/java/item/ItemWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project01/src/main/java/tests/TestRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Project01/src/main/java/tests/TestRunner.java" afterDir="false" />
-    </list>
+    <list default="true" id="1e9418a7-3ca1-41a5-ac95-792069cc1673" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -335,6 +315,14 @@
       <option name="presentableId" value="Default" />
       <updated>1560527965288</updated>
     </task>
+    <task id="LOCAL-00001" summary="First iteration">
+      <created>1560803018123</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1560803018124</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -393,6 +381,10 @@
       <window_info anchor="right" id="Maven" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
     </layout-to-restore>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First iteration" />
+    <option name="LAST_COMMIT_MESSAGE" value="First iteration" />
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.46/mysql-connector-java-5.1.46.jar!/com/mysql/jdbc/configs/3-0-Compat.properties">
