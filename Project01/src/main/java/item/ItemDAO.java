@@ -1,5 +1,9 @@
 package item;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,10 +11,21 @@ import java.util.List;
 //TODO: Saving to xml
 //TODO: Loading from xml at program start
 public class ItemDAO {
-    private ItemWrapper itemWrapper = new ItemWrapper( new ArrayList<Item>());
+    private ItemWrapper itemWrapper = null;
     private static ItemDAO itemDAO;
     {
         itemDAO = new ItemDAO();
+
+        try {
+            JAXBContext jaxbContext = JAXBContext.newInstance(ItemWrapper.class, Item.class);
+            Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+            itemWrapper = (ItemWrapper) unmarshaller.unmarshal(new File("itemWrapper.xml"));
+        } catch (JAXBException e) {
+            System.out.println("Unmarshll failled");
+            e.printStackTrace();
+        }
+
+
     }
 
     private ItemDAO() {
@@ -35,6 +50,11 @@ public class ItemDAO {
         if (index != -1) {
             itemWrapper.getItemArrayList().set(index,item);
         }
+
+    }
+
+    private void readDataFromFile() {
+
 
     }
 
