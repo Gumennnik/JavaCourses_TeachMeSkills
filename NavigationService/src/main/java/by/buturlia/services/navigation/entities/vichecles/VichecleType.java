@@ -4,14 +4,14 @@ import java.util.Objects;
 
 public class VichecleType {
     private int id;
-    private int vichecleTypeame;
+    private int vichecleTypename;
 
 
 
     @Override
     public String toString() {
         return "VichecleType{" +
-                "vichecleTypeame=" + vichecleTypeame +
+                "vichecleTypename=" + vichecleTypename +
                 '}';
     }
 
@@ -21,12 +21,12 @@ public class VichecleType {
         if (!(o instanceof VichecleType)) return false;
         VichecleType that = (VichecleType) o;
         return getId() == that.getId() &&
-                getVichecleTypeame() == that.getVichecleTypeame();
+                getVichecleTypename() == that.getVichecleTypename();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getVichecleTypeame());
+        return Objects.hash(getId(), getVichecleTypename());
     }
 
     public int getId() {
@@ -37,17 +37,17 @@ public class VichecleType {
         this.id = id;
     }
 
-    public int getVichecleTypeame() {
-        return vichecleTypeame;
+    public int getVichecleTypename() {
+        return vichecleTypename;
     }
 
-    public void setVichecleTypeame(int vichecleTypeame) {
-        this.vichecleTypeame = vichecleTypeame;
+    public void setVichecleTypename(int vichecleTypename) {
+        this.vichecleTypename = vichecleTypename;
     }
 
-    public VichecleType(int id, int vichecleTypeame) {
+    public VichecleType(int id, int vichecleTypename) {
         this.id = id;
-        this.vichecleTypeame = vichecleTypeame;
+        this.vichecleTypename = vichecleTypename;
     }
 
     public VichecleType() {

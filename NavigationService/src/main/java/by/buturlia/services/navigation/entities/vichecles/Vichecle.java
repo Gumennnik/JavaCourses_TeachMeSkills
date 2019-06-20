@@ -106,6 +106,7 @@ public abstract class Vichecle {
     }
 
     public Vichecle(int id, String vichecleName, int speed, int peopleCount, int cargoCount, VichecleType vichecleType, int priceForKilometer) {
+
         this.id = id;
         this.vichecleName = vichecleName;
         this.speed = speed;
@@ -118,6 +119,6 @@ public abstract class Vichecle {
     public Vichecle() {
     }
 
-    public abstract ArrayList<Route> getRoutes(City firstCity, City secondCity);
+    public abstract ArrayList<Route> getRoutesToDestination( City otherCity);
 
 }

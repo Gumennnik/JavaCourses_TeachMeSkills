@@ -2,6 +2,7 @@ package by.buturlia.services.navigation.entities.cities.dao;
 
 
 import by.buturlia.services.navigation.db.MySqlConnection;
+import by.buturlia.services.navigation.entities.CrudDAO;
 import by.buturlia.services.navigation.entities.cities.City;
 
 import java.sql.Connection;
@@ -50,7 +51,7 @@ public class CityDAO implements CrudDAO<City> {
     }
 
 
-    public List<City> get() {
+    public List<City> get() throws Exception {
 
         ArrayList<City> cityArrayList = new ArrayList<>();
 
@@ -70,7 +71,7 @@ public class CityDAO implements CrudDAO<City> {
                 city.setHasGroundRoad(resultSet.getBoolean("hasRoad"));
                 city.setHasAirport(resultSet.getBoolean("hasAirport"));
                 city.setHasSeaport(resultSet.getBoolean("hasSeaport"));
-
+                cityArrayList.add(city);
                 System.out.println(city.toString());
 
             }
@@ -80,11 +81,11 @@ public class CityDAO implements CrudDAO<City> {
 
         } catch (SQLException e) {
             e.printStackTrace();
-            return null;
+            throw new Exception();
         }
 
 
-        return null;
+        return cityArrayList;
     }
 
 
