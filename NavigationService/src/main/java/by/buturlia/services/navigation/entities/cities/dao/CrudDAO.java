@@ -1,4 +1,4 @@
-package by.buturlia.services.navigation.dao;
+package by.buturlia.services.navigation.entities.cities.dao;
 
 import java.util.List;
 

@@ -1,34 +1,33 @@
-package by.buturlia.services.navigation.dao;
+package by.buturlia.services.navigation.entities.cities.dao;
 
 
 import by.buturlia.services.navigation.db.MySqlConnection;
-import by.buturlia.services.navigation.entities.City;
+import by.buturlia.services.navigation.entities.cities.City;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
-public class CityDAOImpl implements CityDAO {
+public class CityDAO implements CrudDAO<City> {
 
     private static final String CREATE_CITY = "INSERT INTO cities VALUES (null , ? , ? , ? , ? , ? , ?)";
     private static final String SELECT_ALL_CITIES = "SELECT * FROM cities";
     private static final String UPDATE = "UPDATE cities SET name = ? WHERE id = ?";
 
-    @Override
+
     public void create(City city) {
         try (Connection connection = MySqlConnection.getConnection()) {
             //TODO: NamedParameterStatement
-
-
-
             PreparedStatement preparedStatement = connection.prepareStatement(CREATE_CITY);
             preparedStatement.setString(1, city.getCityName());
             preparedStatement.setDouble(2, city.getLatitude());
             preparedStatement.setDouble(3, city.getLongitude());
             preparedStatement.setBoolean(4, city.isHasGroundRoad());
             preparedStatement.setBoolean(5, city.isHasAirport());
-            preparedStatement.setBoolean(6 , city.isHasSeaport());
+            preparedStatement.setBoolean(6, city.isHasSeaport());
 
 
         } catch (SQLException e) {
@@ -36,25 +35,60 @@ public class CityDAOImpl implements CityDAO {
         }
     }
 
-    @Override
-    public City getCitiesByName() {
-        return null;
-    }
+//    public ArrayList<City> getCitiesByName() {
+//        return null;
+//    }
 
-    @Override
+
     public void update(City city) {
 
     }
 
-    @Override
+
     public void delete(int id) {
 
     }
 
-    @Override
+
     public List<City> get() {
+
+        ArrayList<City> cityArrayList = new ArrayList<>();
+
+        try(    Connection connection = MySqlConnection.getConnection()){
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_CITIES);
+            preparedStatement.execute();
+            ResultSet resultSet = preparedStatement.getResultSet();
+
+            while (resultSet.next()) {
+
+
+                City city = new City();
+                city.setCityId(resultSet.getInt("id"));
+                city.setCityName(resultSet.getString("name"));
+                city.setLatitude(resultSet.getInt("latitude"));
+                city.setLongitude(resultSet.getInt("longtitude"));
+                city.setHasGroundRoad(resultSet.getBoolean("hasRoad"));
+                city.setHasAirport(resultSet.getBoolean("hasAirport"));
+                city.setHasSeaport(resultSet.getBoolean("hasSeaport"));
+
+                System.out.println(city.toString());
+
+            }
+
+
+            System.out.println(resultSet);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+
         return null;
     }
+
+
+
 
     //    public static void main(String[] args) {
 //        try {

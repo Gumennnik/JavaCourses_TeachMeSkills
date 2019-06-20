@@ -1,4 +1,4 @@
-package by.buturlia.services.navigation.entities;
+package by.buturlia.services.navigation.entities.cities;
 
 public class City {
     private int cityId;
@@ -18,6 +18,19 @@ public class City {
         this.isHasSeaport = isHasSeaport;
         this.latitude = latitude;
         this.longitude = longitude;
+    }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "cityId=" + cityId +
+                ", cityName='" + cityName + '\'' +
+                ", isHasGroundRoad=" + isHasGroundRoad +
+                ", isHasAirport=" + isHasAirport +
+                ", isHasSeaport=" + isHasSeaport +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                '}';
     }
 
     public int getCityId() {
