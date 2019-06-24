@@ -72,12 +72,12 @@ public class CityDAO implements CrudDAO<City> {
                 city.setHasAirport(resultSet.getBoolean("hasAirport"));
                 city.setHasSeaport(resultSet.getBoolean("hasSeaport"));
                 cityArrayList.add(city);
-                System.out.println(city.toString());
+                //System.out.println(city.toString());
 
             }
 
 
-            System.out.println(resultSet);
+            //System.out.println(resultSet);
 
         } catch (SQLException e) {
             e.printStackTrace();

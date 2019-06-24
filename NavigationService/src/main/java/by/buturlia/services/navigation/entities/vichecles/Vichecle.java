@@ -19,15 +19,13 @@ public abstract class Vichecle {
 
     @Override
     public String toString() {
-        return "Vichecle{" +
-                "id=" + id +
-                ", vichecleName='" + vichecleName + '\'' +
-                ", speed=" + speed +
-                ", peopleCount=" + peopleCount +
-                ", cargoCount=" + cargoCount +
-                ", vichecleType=" + vichecleType +
-                ", priceForKilometer=" + priceForKilometer +
-                '}';
+        return  id +
+                " " + vichecleName +
+                " speed " + speed +
+                " people " + peopleCount +
+                " cargo " + cargoCount +
+                " type " + vichecleType +
+                " price " + priceForKilometer;
     }
 
     @Override
@@ -119,6 +117,6 @@ public abstract class Vichecle {
     public Vichecle() {
     }
 
-    public abstract ArrayList<Route> getRoutesToDestination( City otherCity);
+    public abstract Route getRoutesToDestination (City otherCity, City firstCity) throws NoRouteExistException;
 
 }

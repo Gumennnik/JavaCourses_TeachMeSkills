@@ -45,19 +45,38 @@ public class VichecleDAO implements CrudDAO<Vichecle> {
             while (resultSet.next()) {
                 String vichecleTypeName = "";
                 Vichecle vichecle;
-                switch (vichecleTypeName){
-                    case "ground":
-                        vichecle = new GroundVichecle();
-                        break;
-                    case "air":
-                        vichecle = new AirVichecle();
-                        break;
-                    case "sea":
-                        vichecle = new SeaVichecle();
-                        break;
+                try {
+                    vichecleTypeName = resultSet.getString("vichecle_type_name");
+                    switch (vichecleTypeName) {
+                        case "ground":
+                            vichecle = new GroundVichecle();
+                            break;
+                        case "air":
+                            vichecle = new AirVichecle();
+                            break;
+                        case "sea":
+                            vichecle = new SeaVichecle();
+                            break;
                         default:
                             continue;
+                    }
+
+                    vichecle.setId(resultSet.getInt("id"));
+                    vichecle.setVichecleName(resultSet.getString("vichecle_name"));
+                    vichecle.setSpeed(resultSet.getInt("vichecle_speed"));
+                    vichecle.setPeopleCount(resultSet.getInt("vichecle_people_count"));
+                    vichecle.setCargoCount(resultSet.getInt("vichecle_cargo_count"));
+                    vichecle.setPriceForKilometer(resultSet.getInt("vichecle_pricing"));
+
+
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    continue;
                 }
+
+                vichecleArrayList.add(vichecle);
+
 
 
 
@@ -66,6 +85,6 @@ public class VichecleDAO implements CrudDAO<Vichecle> {
 
         }
 
-        return null;
+        return vichecleArrayList;
     }
 }

@@ -22,15 +22,8 @@ public class City {
 
     @Override
     public String toString() {
-        return "City{" +
-                "cityId=" + cityId +
-                ", cityName='" + cityName + '\'' +
-                ", isHasGroundRoad=" + isHasGroundRoad +
-                ", isHasAirport=" + isHasAirport +
-                ", isHasSeaport=" + isHasSeaport +
-                ", latitude=" + latitude +
-                ", longitude=" + longitude +
-                '}';
+        return cityId +
+                " " + cityName;
     }
 
     public int getCityId() {
