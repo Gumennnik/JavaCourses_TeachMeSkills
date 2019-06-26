@@ -9,8 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class CityDAO implements CrudDAO<City> {
 
@@ -51,9 +50,9 @@ public class CityDAO implements CrudDAO<City> {
     }
 
 
-    public List<City> get() throws Exception {
+    public Map<String, City> get() throws Exception {
 
-        ArrayList<City> cityArrayList = new ArrayList<>();
+        Map<String,City> cityMap = new HashMap<>();
 
         try(    Connection connection = MySqlConnection.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_CITIES);
@@ -71,7 +70,7 @@ public class CityDAO implements CrudDAO<City> {
                 city.setHasGroundRoad(resultSet.getBoolean("hasRoad"));
                 city.setHasAirport(resultSet.getBoolean("hasAirport"));
                 city.setHasSeaport(resultSet.getBoolean("hasSeaport"));
-                cityArrayList.add(city);
+                cityMap.put(String.valueOf(city.getCityId()),city);
                 //System.out.println(city.toString());
 
             }
@@ -85,7 +84,7 @@ public class CityDAO implements CrudDAO<City> {
         }
 
 
-        return cityArrayList;
+        return cityMap;
     }
 
 

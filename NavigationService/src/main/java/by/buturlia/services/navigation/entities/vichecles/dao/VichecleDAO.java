@@ -2,13 +2,15 @@ package by.buturlia.services.navigation.entities.vichecles.dao;
 
 import by.buturlia.services.navigation.db.MySqlConnection;
 import by.buturlia.services.navigation.entities.CrudDAO;
+import by.buturlia.services.navigation.entities.cities.City;
 import by.buturlia.services.navigation.entities.vichecles.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class VichecleDAO implements CrudDAO<Vichecle> {
 
@@ -32,9 +34,9 @@ public class VichecleDAO implements CrudDAO<Vichecle> {
     }
 
     @Override
-    public List<Vichecle> get() throws Exception {
+    public Map<String, Vichecle> get() throws Exception {
 
-        ArrayList<Vichecle> vichecleArrayList = new ArrayList<>();
+        Map<String, Vichecle> vichecleArrayList = new TreeMap();
 
         try (Connection connection = MySqlConnection.getConnection()){
 
@@ -75,7 +77,7 @@ public class VichecleDAO implements CrudDAO<Vichecle> {
                     continue;
                 }
 
-                vichecleArrayList.add(vichecle);
+                vichecleArrayList.put(String.valueOf(vichecle.getId()), vichecle);
 
 
 

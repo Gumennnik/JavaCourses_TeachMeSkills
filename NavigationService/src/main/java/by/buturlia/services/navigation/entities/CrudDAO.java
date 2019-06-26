@@ -1,6 +1,8 @@
 package by.buturlia.services.navigation.entities;
 
-import java.util.List;
+import by.buturlia.services.navigation.entities.cities.City;
+
+import java.util.Map;
 
 public interface CrudDAO<T> {
     void create(T t);
@@ -9,6 +11,6 @@ public interface CrudDAO<T> {
 
     void delete(int id);
 
-    List<T> get() throws Exception;
+    Map<String, T> get() throws Exception;
 
 }

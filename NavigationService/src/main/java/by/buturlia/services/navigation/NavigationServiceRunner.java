@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class NavigationServiceRunner {
@@ -22,39 +23,23 @@ public class NavigationServiceRunner {
 
 //        Connection connection = MySqlConnection.getConnection();
 //        System.out.println("Check connection " + connection.isClosed());
+        NavigationServiceRunner navigationServiceRunner = new NavigationServiceRunner();
 
-        List<City> cityList = (new CityDAO()).get();
+        Map<String,City> cityMap = (new CityDAO()).get();
 
 
         System.out.println("Please choose starting city from list : ");
 
-        for (City city : cityList) {
-            System.out.println(city);
-        }
-        System.out.println("Insert city id and press enter, 0 to exit program");
-        int chosenNumber = new Scanner(System.in).nextInt();
-        if (chosenNumber == 0) {
-            return;
-        }
-
-        City startingCity = cityList.get(chosenNumber - 1);
-        cityList.remove(startingCity);
+        City startingCity = navigationServiceRunner.getChosenCity(cityMap);
+        cityMap.remove(startingCity);
 
         System.out.println("You choose " + startingCity);
 
-        for (City city : cityList) {
-            System.out.println(city);
-        }
-        System.out.println("Insert city id and press enter, 0 to exit program");
-        chosenNumber = new Scanner(System.in).nextInt();
-        if (chosenNumber == 0) {
-            return;
-        }
+        City destinationCity = navigationServiceRunner.getChosenCity(cityMap);
 
-        City destinationCity = cityList.get(chosenNumber -1 );
+        System.out.println("You choose " + destinationCity);
 
-
-        List<Vichecle> vichecles = null;
+        Map<String, Vichecle> vichecles = null;
 
         VichecleDAO vichecleDAO = new VichecleDAO();
         try {
@@ -62,18 +47,34 @@ public class NavigationServiceRunner {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        for (Vichecle vichecle : vichecles) {
+        ArrayList routes = new ArrayList();
+        for (Vichecle vichecle : vichecles.values()) {
             try {
-                vichecle.getRoutesToDestination(city ,city)
+                routes.add(vichecle.getRoutesToDestination(startingCity ,destinationCity));
 
             } catch (NoRouteExistException e) {
                 continue;
             }
         }
 
+        System.out.println(routes);
 
 
+
+    }
+
+    private City getChosenCity(Map<String, City> cityMap) throws NoRouteExistException {
+
+
+        for (City city : cityMap.values()) {
+            System.out.println(city);
+        }
+        System.out.println("Insert city id and press enter, 0 to exit program");
+        int chosenNumber = new Scanner(System.in).nextInt();
+        if (chosenNumber == 0) {
+            throw new NoRouteExistException();
+        }
+        return cityMap.get(String.valueOf(chosenNumber));
     }
 
 
