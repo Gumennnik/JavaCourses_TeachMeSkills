@@ -1,0 +1,14 @@
+header{
+    color: blue;
+    width: 30px;
+}
+
+.myClass{
+    border: solid;
+    color: mediumvioletred;
+}
+
+#id{
+    color: green;
+    border: solid;
+}
