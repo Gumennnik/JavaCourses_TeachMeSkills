@@ -4,7 +4,7 @@ $( document ).ready(function() {
         
         function(){
 
-           while(true){ alert("ALERT!")}
+            alert("ALERT!")
             return false;
         }
     );
